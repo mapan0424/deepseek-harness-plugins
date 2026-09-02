@@ -52,5 +52,16 @@
     "@deepseek-ai/dsh-typert-protocol": ">=0.1.0-rc.6",
     "@deepseek-ai/dsh-tools": "^0.1.1-rc.2",
     "@deepseek-ai/schemastery": ">=3.18.0"
-  }
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness-plugin",
+    "deepseek-harness",
+    "cordis-plugin",
+    "cordis",
+    "dsh",
+    "channel-plugin",
+    "feishu",
+    "lark"
+  ]
 }

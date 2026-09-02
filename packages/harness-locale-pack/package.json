@@ -44,5 +44,18 @@
     "@deepseek-ai/cordis": "^4.0.1",
     "@deepseek-ai/dsh-client-locale": "^0.1.1-rc.2",
     "@deepseek-ai/schemastery": ">=3.18.0"
-  }
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness-plugin",
+    "deepseek-harness",
+    "cordis-plugin",
+    "cordis",
+    "dsh",
+    "dsh-locale",
+    "i18n",
+    "localization",
+    "tibetan",
+    "uyghur"
+  ]
 }

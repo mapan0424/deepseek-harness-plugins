@@ -19,7 +19,7 @@
   - [2. 即时通讯与协同渠道 (Messaging Channels)](#2-即时通讯与协同渠道-messaging-channels)
   - [3. 数据分析与用量看板 (Analytics & Insights)](#3-数据分析与用量看板-analytics--insights)
   - [4. 界面增强与多语言包 (UI & Locales)](#4-界面增强与多语言包-ui--locales)
-- [📥 插件安装方法](#-插件安装方法)
+- [📥 插件安装与卸载指南 (`dsh plugin`)](#-插件安装与卸载指南-dsh-plugin)
 - [⚙️ 各插件配置与使用示例](#️-各插件配置与使用示例)
 - [🛠️ 本地开发与发包指南](#️-本地开发与发包指南)
 - [📄 开源协议](#-开源协议)
@@ -30,55 +30,65 @@
 
 ### 1. 核心底座与配置 (Core & Config)
 
-| 插件包名 | 最新版本 | 功能说明 | 快速安装指令 | npm 页面 |
+| 插件包名 | 最新版本 | 功能说明 | 安装命令 (`dsh plugin`) | npm 页面 |
 | :--- | :---: | :--- | :--- | :---: |
-| **`@anarkhgatsby/deepseek-harness-core`** | `0.1.0` | 统一 `GatewayCore` 消息总线路由中枢，负责消息去重、会话分发与渠道底层适配。 | `pnpm add @anarkhgatsby/deepseek-harness-core` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-core)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-core) |
-| **`@anarkhgatsby/deepseek-harness-channel-config`** | `0.1.4` | 渠道可视化设置中心前端 UI，支持飞书/企微/iMessage 运行时参数在线配置与热重载。 | `pnpm add @anarkhgatsby/deepseek-harness-channel-config` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-config)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-config) |
+| **`@anarkhgatsby/deepseek-harness-core`** | `0.1.0` | 统一 `GatewayCore` 消息总线路由中枢，负责消息去重、会话分发与渠道底层适配。 | `dsh plugin add @anarkhgatsby/deepseek-harness-core` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-core)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-core) |
+| **`@anarkhgatsby/deepseek-harness-channel-config`** | `0.1.4` | 渠道可视化设置中心前端 UI，支持飞书/企微/iMessage 运行时参数在线配置与热重载。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-config` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-config)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-config) |
 
 ---
 
 ### 2. 即时通讯与协同渠道 (Messaging Channels)
 
-| 插件包名 | 最新版本 | 功能说明 | 快速安装指令 | npm 页面 |
+| 插件包名 | 最新版本 | 功能说明 | 安装命令 (`dsh plugin`) | npm 页面 |
 | :--- | :---: | :--- | :--- | :---: |
-| **`@anarkhgatsby/deepseek-harness-channel-feishu`** | `0.1.0` | 飞书 / Lark 机器人渠道（支持 WebSocket 长连接免公网 IP、富文本/卡片/打字机流式输出）。 | `pnpm add @anarkhgatsby/deepseek-harness-channel-feishu` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-feishu)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-feishu) |
-| **`@anarkhgatsby/deepseek-harness-channel-wecom`** | `0.1.1` | 企业微信应用及自建机器人接入渠道。 | `pnpm add @anarkhgatsby/deepseek-harness-channel-wecom` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-wecom)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-wecom) |
-| **`@anarkhgatsby/deepseek-harness-channel-imessage`** | `0.1.1` | macOS 本地原生 iMessage 消息通道（直连 Messages.app 与本地 SQLite 数据库）。 | `pnpm add @anarkhgatsby/deepseek-harness-channel-imessage` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-imessage)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-imessage) |
+| **`@anarkhgatsby/deepseek-harness-channel-feishu`** | `0.1.0` | 飞书 / Lark 机器人渠道（支持 WebSocket 长连接免公网 IP、富文本/卡片/打字机流式输出）。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-feishu` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-feishu)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-feishu) |
+| **`@anarkhgatsby/deepseek-harness-channel-wecom`** | `0.1.1` | 企业微信应用及自建机器人接入渠道。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-wecom` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-wecom)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-wecom) |
+| **`@anarkhgatsby/deepseek-harness-channel-imessage`** | `0.1.1` | macOS 本地原生 iMessage 消息通道（直连 Messages.app 与本地 SQLite 数据库）。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-imessage` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-imessage)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-imessage) |
 
 ---
 
 ### 3. 数据分析与用量看板 (Analytics & Insights)
 
-| 插件包名 | 最新版本 | 功能说明 | 快速安装指令 | npm 页面 |
+| 插件包名 | 最新版本 | 功能说明 | 安装命令 (`dsh plugin`) | npm 页面 |
 | :--- | :---: | :--- | :--- | :---: |
-| **`@anarkhgatsby/deepseek-harness-insights`** | `0.1.4` | 本地优先用量洞察面板：Token 消耗走势、模型花费分布、对话活动热力图与工具调用审计。 | `pnpm add @anarkhgatsby/deepseek-harness-insights` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-insights)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-insights) |
+| **`@anarkhgatsby/deepseek-harness-insights`** | `0.1.4` | 本地优先用量洞察面板：Token 消耗走势、模型花费分布、对话活动热力图与工具调用审计。 | `dsh plugin add @anarkhgatsby/deepseek-harness-insights` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-insights)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-insights) |
 
 ---
 
 ### 4. 界面增强与多语言包 (UI & Locales)
 
-| 插件包名 | 最新版本 | 功能说明 | 快速安装指令 | npm 页面 |
+| 插件包名 | 最新版本 | 功能说明 | 安装命令 (`dsh plugin`) | npm 页面 |
 | :--- | :---: | :--- | :--- | :---: |
-| **`@anarkhgatsby/deepseek-harness-locale-pack`** | `0.1.1` | 多语言与民族语言包：支持藏文、维吾尔文、蒙古文、彝文、繁体中文、日文、韩文等。 | `pnpm add @anarkhgatsby/deepseek-harness-locale-pack` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-locale-pack)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-locale-pack) |
+| **`@anarkhgatsby/deepseek-harness-locale-pack`** | `0.1.1` | 多语言与民族语言包：支持藏文、维吾尔文、蒙古文、彝文、繁体中文、日文、韩文等。 | `dsh plugin add @anarkhgatsby/deepseek-harness-locale-pack` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-locale-pack)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-locale-pack) |
 
 ---
 
-## 📥 插件安装方法
+## 📥 插件安装与卸载指南 (`dsh plugin`)
 
-在你的 DeepSeek Harness 工作区或运行时环境中：
+所有插件遵循 DeepSeek Harness 官方 bundle manifest 规范，可通过官方 `dsh plugin` CLI 命令直接管理：
 
-### 步骤 1：通过包管理器安装
+### 1. 从 npm 在线安装
 ```bash
-# 示例：安装飞书渠道与可视化配置面板
-pnpm add @anarkhgatsby/deepseek-harness-channel-feishu @anarkhgatsby/deepseek-harness-channel-config
+# 安装到当前默认 profile
+dsh plugin add @anarkhgatsby/deepseek-harness-insights
+
+# 或者安装到指定 profile
+dsh plugin --profile demo add @anarkhgatsby/deepseek-harness-channel-feishu
 ```
 
-### 步骤 2：在 `cordis.patch.yml` 中启用插件
-在运行时配置文件中声明启用：
-```yaml
-plugins:
-  "@anarkhgatsby/deepseek-harness-channel-feishu": {}
-  "@anarkhgatsby/deepseek-harness-channel-config": {}
+### 2. 启动 Harness 生效
+```bash
+dsh --profile demo
+```
+
+### 3. 卸载/移除插件
+```bash
+dsh plugin --profile demo remove @anarkhgatsby/deepseek-harness-insights
+```
+
+### 4. 从本地源码目录安装（开发调试）
+```bash
+dsh plugin --profile demo add ./packages/harness-insights
 ```
 
 ---
@@ -86,7 +96,7 @@ plugins:
 ## ⚙️ 各插件配置与使用示例
 
 ### 1. 飞书 / Lark 机器人配置
-可在前端可视化设置面板中直接填写，或在配置文件中注入：
+安装后可在前端 **设置 ➔ 渠道配置** 页面直接输入，或在配置中写入：
 ```yaml
 "@anarkhgatsby/deepseek-harness-channel-feishu":
   appId: "cli_a1b2c3d4e5f6"
@@ -109,8 +119,8 @@ plugins:
 ### 3. 用量洞察看板 (Usage Insights)
 启用 `@anarkhgatsby/deepseek-harness-insights` 后：
 * 打开 DeepSeek Harness 工作台页面；
-* 点击侧边栏或导航栏新增的 **📊 Usage Insights** 入口；
-* 实时查看 Token 消耗折线图、会话消息量、模型花费与工具调用详情。
+* 点击设置中的 **📊 用量洞察 (Usage Insights)** 入口；
+* 实时查看 Token 消耗折线图、会话消息量、模型花费与常用工具调用统计。
 
 ### 4. 多语言与民族语言包
 加载 `@anarkhgatsby/deepseek-harness-locale-pack` 后：

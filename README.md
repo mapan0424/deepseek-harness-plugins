@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![pnpm workspace](https://img.shields.io/badge/pnpm-workspace-orange.svg)](https://pnpm.io/workspaces)
 
-A curated collection of **unofficial community plugins** for **DeepSeek Harness** (supporting Web, Docker, and Desktop runtimes).
+A curated collection of **unofficial community plugins** for **DeepSeek Harness** (compatible with Web UI, Docker deployments, and Desktop runtimes).
 
 > ⚠️ **Unofficial Disclaimer**: This project is developed and maintained independently by the open-source community. It is **NOT** an official DeepSeek product, and is not sponsored, endorsed, or affiliated with DeepSeek in any way.
 
@@ -14,15 +14,15 @@ A curated collection of **unofficial community plugins** for **DeepSeek Harness*
 
 ## 📑 Table of Contents
 
-- [Plugin Marketplace Directory](#-plugin-marketplace-directory)
+- [📦 Plugin Marketplace Directory](#-plugin-marketplace-directory)
   - [1. Core & Infrastructure](#1-core--infrastructure)
   - [2. Messaging & Collaboration Channels](#2-messaging--collaboration-channels)
   - [3. Analytics & Insights](#3-analytics--insights)
   - [4. UI & Localization](#4-ui--localization)
-- [How to Install Plugins](#-how-to-install-plugins)
-- [Configuration & Usage Examples](#-configuration--usage-examples)
-- [Local Development & Contribution](#-local-development--contribution)
-- [License](#-license)
+- [📥 How to Install Plugins via `dsh plugin`](#-how-to-install-plugins-via-dsh-plugin)
+- [⚙️ Plugin Configuration & Usage](#️-plugin-configuration--usage)
+- [🛠️ Monorepo Local Development & Publishing](#️-monorepo-local-development--publishing)
+- [📄 License](#-license)
 
 ---
 
@@ -30,70 +30,80 @@ A curated collection of **unofficial community plugins** for **DeepSeek Harness*
 
 ### 1. Core & Infrastructure
 
-| Package Name | Version | Description | Quick Install | npm |
+| Package Name | Version | Description | Install Command (`dsh plugin`) | npm |
 | :--- | :---: | :--- | :--- | :---: |
-| **`@anarkhgatsby/deepseek-harness-core`** | `0.1.0` | Unified `GatewayCore` message bus routing, deduplication, and multi-channel dispatch hub. | `pnpm add @anarkhgatsby/deepseek-harness-core` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-core)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-core) |
-| **`@anarkhgatsby/deepseek-harness-channel-config`** | `0.1.4` | Visual channel settings UI inside the Harness Web interface (Feishu / WeCom / iMessage). | `pnpm add @anarkhgatsby/deepseek-harness-channel-config` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-config)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-config) |
+| **`@anarkhgatsby/deepseek-harness-core`** | `0.1.0` | Unified `GatewayCore` message bus routing, deduplication, and multi-channel dispatch hub. | `dsh plugin add @anarkhgatsby/deepseek-harness-core` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-core)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-core) |
+| **`@anarkhgatsby/deepseek-harness-channel-config`** | `0.1.4` | Visual channel settings UI inside the Harness Web interface (Feishu / WeCom / iMessage). | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-config` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-config)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-config) |
 
 ---
 
 ### 2. Messaging & Collaboration Channels
 
-| Package Name | Version | Description | Quick Install | npm |
+| Package Name | Version | Description | Install Command (`dsh plugin`) | npm |
 | :--- | :---: | :--- | :--- | :---: |
-| **`@anarkhgatsby/deepseek-harness-channel-feishu`** | `0.1.0` | Feishu / Lark bot integration with WebSocket long-connection mode, rich cards, and streaming typing. | `pnpm add @anarkhgatsby/deepseek-harness-channel-feishu` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-feishu)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-feishu) |
-| **`@anarkhgatsby/deepseek-harness-channel-wecom`** | `0.1.1` | WeCom (Enterprise WeChat) bot and application integration. | `pnpm add @anarkhgatsby/deepseek-harness-channel-wecom` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-wecom)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-wecom) |
-| **`@anarkhgatsby/deepseek-harness-channel-imessage`** | `0.1.1` | Native local iMessage integration on macOS (reads `Messages.app` SQLite DB with secure dispatch). | `pnpm add @anarkhgatsby/deepseek-harness-channel-imessage` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-imessage)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-imessage) |
+| **`@anarkhgatsby/deepseek-harness-channel-feishu`** | `0.1.0` | Feishu / Lark bot integration with WebSocket long-connection mode (no public IP required), rich cards, and streaming typing. | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-feishu` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-feishu)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-feishu) |
+| **`@anarkhgatsby/deepseek-harness-channel-wecom`** | `0.1.1` | WeCom (Enterprise WeChat) bot and application integration. | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-wecom` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-wecom)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-wecom) |
+| **`@anarkhgatsby/deepseek-harness-channel-imessage`** | `0.1.1` | Native local iMessage integration on macOS (reads `Messages.app` SQLite DB with secure local dispatch). | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-imessage` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-imessage)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-imessage) |
 
 ---
 
 ### 3. Analytics & Insights
 
-| Package Name | Version | Description | Quick Install | npm |
+| Package Name | Version | Description | Install Command (`dsh plugin`) | npm |
 | :--- | :---: | :--- | :--- | :---: |
-| **`@anarkhgatsby/deepseek-harness-insights`** | `0.1.4` | Local-first usage statistics, token consumption breakdowns, conversation heatmaps, and analytics charts. | `pnpm add @anarkhgatsby/deepseek-harness-insights` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-insights)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-insights) |
+| **`@anarkhgatsby/deepseek-harness-insights`** | `0.1.4` | Local-first usage statistics, token consumption breakdowns, conversation heatmaps, and analytics charts. | `dsh plugin add @anarkhgatsby/deepseek-harness-insights` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-insights)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-insights) |
 
 ---
 
 ### 4. UI & Localization
 
-| Package Name | Version | Description | Quick Install | npm |
+| Package Name | Version | Description | Install Command (`dsh plugin`) | npm |
 | :--- | :---: | :--- | :--- | :---: |
-| **`@anarkhgatsby/deepseek-harness-locale-pack`** | `0.1.1` | Multi-language and ethnic minority language pack (Tibetan, Mongolian, Uyghur, Nuosu Yi, Traditional Chinese, Japanese, Korean, etc.). | `pnpm add @anarkhgatsby/deepseek-harness-locale-pack` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-locale-pack)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-locale-pack) |
+| **`@anarkhgatsby/deepseek-harness-locale-pack`** | `0.1.1` | Multi-language and ethnic minority language pack (Tibetan, Mongolian, Uyghur, Nuosu Yi, Traditional Chinese, Japanese, Korean, etc.). | `dsh plugin add @anarkhgatsby/deepseek-harness-locale-pack` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-locale-pack)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-locale-pack) |
 
 ---
 
-## 📥 How to Install Plugins
+## 📥 How to Install Plugins via `dsh plugin`
 
-In your DeepSeek Harness workspace runtime:
+All plugins in this repository follow the DeepSeek Harness official bundle manifest and can be managed directly via the `dsh plugin` CLI:
 
-### Step 1: Install via npm / pnpm
+### 1. Install from npm
 ```bash
-# Example: Install Feishu Channel & Visual Config Panel
-pnpm add @anarkhgatsby/deepseek-harness-channel-feishu @anarkhgatsby/deepseek-harness-channel-config
+# Install to default profile
+dsh plugin add @anarkhgatsby/deepseek-harness-insights
+
+# Or install to a specific profile
+dsh plugin --profile demo add @anarkhgatsby/deepseek-harness-channel-feishu
 ```
 
-### Step 2: Register in `cordis.patch.yml` or Harness Config
-Add the installed plugin to your runtime plugins list:
-```yaml
-plugins:
-  "@anarkhgatsby/deepseek-harness-channel-feishu": {}
-  "@anarkhgatsby/deepseek-harness-channel-config": {}
+### 2. Start DeepSeek Harness
+```bash
+dsh --profile demo
+```
+
+### 3. Uninstall a Plugin
+```bash
+dsh plugin --profile demo remove @anarkhgatsby/deepseek-harness-insights
+```
+
+### 4. Install from Local Source (Development)
+```bash
+dsh plugin --profile demo add ./packages/harness-insights
 ```
 
 ---
 
-## ⚙️ Configuration & Usage Examples
+## ⚙️ Plugin Configuration & Usage
 
 ### 1. Feishu / Lark Channel Configuration
-In your Harness settings UI or configuration file:
+Once installed, open the **Settings ➔ Channel Config** tab in Harness UI or configure via YAML:
 ```yaml
 "@anarkhgatsby/deepseek-harness-channel-feishu":
   appId: "cli_a1b2c3d4e5f6"
   appSecret: "your_app_secret_here"
   encryptKey: ""
   verificationToken: ""
-  connectionMode: "websocket" # Recommended: no public IP required
+  connectionMode: "websocket" # WebSocket mode avoids needing a public IP/Webhook
 ```
 
 ### 2. WeCom (Enterprise WeChat) Channel Configuration
@@ -107,21 +117,19 @@ In your Harness settings UI or configuration file:
 ```
 
 ### 3. Usage Insights Analytics
-Once `@anarkhgatsby/deepseek-harness-insights` is enabled:
 * Open your DeepSeek Harness web interface or desktop window;
-* Click the **📊 Usage Insights** icon in the sidebar or top navigation;
-* View real-time daily active tokens, cost projection, session distributions, and tool call traces.
+* Click the **📊 Usage Insights** entry in the settings menu;
+* Explore real-time token metrics, cost forecasts, session distributions, and tool call traces.
 
-### 4. Language Pack (Locale Pack)
-Once `@anarkhgatsby/deepseek-harness-locale-pack` is loaded:
-* Go to **Settings ➔ General ➔ Language**;
+### 4. Multi-Language Pack (Locale Pack)
+* Go to **Settings ➔ General ➔ Language (界面语言)**;
 * Select from expanded options: Tibetan (བོད་ཡིག), Uyghur (ئۇيغۇرچە), Mongolian (Монгол хэл), Nuosu Yi (ꆈꌠ꒿), Traditional Chinese (繁體中文), Japanese (日本語), Korean (한국어), etc.
 
 ---
 
-## 🛠️ Local Development & Contribution
+## 🛠️ Monorepo Local Development & Publishing
 
-This repository uses **pnpm Workspaces** and **Changesets** for modular development.
+This repository uses **pnpm Workspaces** and **Changesets** for modular multi-package development.
 
 ### 1. Clone & Install
 ```bash
@@ -135,21 +143,21 @@ pnpm install
 pnpm test
 ```
 
-### 3. Create a Changeset for Release
+### 3. Record Version Changes (Changeset)
 ```bash
 pnpm changeset
 ```
 
-### 4. Versioning & Publishing
+### 4. Release to npm
 ```bash
-# Bump version and generate changelog
+# Bump version and generate changelogs
 pnpm version:packages
 
-# Publish modified packages to npm
+# Publish updated packages to npm
 pnpm publish:packages
 ```
 
-For detailed plugin architecture and authoring guides, see [docs/plugin-development-guide.md](./docs/plugin-development-guide.md).
+For full plugin authoring details, see [docs/plugin-development-guide.md](./docs/plugin-development-guide.md).
 
 ---
 

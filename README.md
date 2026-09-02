@@ -1,13 +1,15 @@
-# 🧩 DeepSeek Harness Plugins (官方与社区插件库)
+# 🧩 DeepSeek Harness Plugins (非官方社区插件库)
 
 [![CI](https://github.com/mapan0424/deepseek-harness-plugins/actions/workflows/ci.yml/badge.svg)](https://github.com/mapan0424/deepseek-harness-plugins/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-面向 **DeepSeek Harness**（包含 Web 端、Docker 部署版与桌面端）的官方与核心社区插件 Monorepo。
+面向 **DeepSeek Harness**（包含 Web 端、Docker 部署版与桌面端）的**非官方社区插件合集 (Unofficial Community Plugins Monorepo)**。
+
+> ⚠️ **非官方声明**：本项目由第三方社区独立开发维护，**不是 DeepSeek 官方产品**，未经 DeepSeek 赞助、认可或背书，亦不代表与 DeepSeek 存在隶属关系。
 
 ---
 
-## 📦 插件矩阵一览
+## 📦 社区插件矩阵一览
 
 | 插件包名 | 类型 | 最新版本 | 功能特性 | npm 页面 |
 | :--- | :---: | :---: | :--- | :---: |

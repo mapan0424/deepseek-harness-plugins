@@ -2,7 +2,7 @@
   "name": "deepseek-harness-plugins-monorepo",
   "private": true,
   "version": "1.0.0",
-  "description": "Official and community plugin collection for DeepSeek Harness",
+  "description": "Community plugins collection for DeepSeek Harness (Unofficial)",
   "license": "MIT",
   "repository": "https://github.com/mapan0424/deepseek-harness-plugins",
   "type": "module",

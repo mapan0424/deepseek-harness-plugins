@@ -4,12 +4,12 @@
 
 [![npm version](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-locale-pack.svg?style=flat-square&color=blue)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-locale-pack)
 [![license](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
-[![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-Plugin-orange.svg?style=flat-square)](https://github.com/mapan0424/deepseek-harness-desktop)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/mapan0424/deepseek-harness-desktop)
+[![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-Plugin-orange.svg?style=flat-square)](https://github.com/mapan0424/deepseek-harness-plugins/tree/main/packages/harness-locale-pack)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/mapan0424/deepseek-harness-plugins/tree/main/packages/harness-locale-pack)
 
 **Comprehensive Multi-Language & Ethnic Minority Language Pack for DeepSeek Harness**
 
-[简体中文文档](README.zh-CN.md) · [Documentation](https://github.com/mapan0424/deepseek-harness-desktop) · [Report Bug](https://github.com/mapan0424/deepseek-harness-desktop/issues)
+[简体中文文档](README.zh-CN.md) · [Documentation](https://github.com/mapan0424/deepseek-harness-plugins/tree/main/packages/harness-locale-pack) · [Report Bug](https://github.com/mapan0424/deepseek-harness-plugins/issues)
 
 </div>
 
@@ -17,7 +17,7 @@
 
 ## 📖 Overview
 
-`@anarkhgatsby/deepseek-harness-locale-pack` is an official-grade, non-invasive community localization extension designed for [DeepSeek Harness (DSH)](https://github.com/mapan0424/deepseek-harness-desktop).
+`@anarkhgatsby/deepseek-harness-locale-pack` is an official-grade, non-invasive community localization extension designed for [DeepSeek Harness (DSH)](https://github.com/mapan0424/deepseek-harness-plugins/tree/main/packages/harness-locale-pack).
 
 While DeepSeek Harness natively ships with only basic Simplified Chinese (`zh`) and English (`en`), this plugin expands the language landscape to **13 global & ethnic minority languages**, including native support for China's major ethnic minority languages: **Tibetan**, **Mongolian**, **Uyghur** (with native Right-to-Left / RTL layout), and **Nuosu Yi**.
 
@@ -70,6 +70,10 @@ While DeepSeek Harness natively ships with only basic Simplified Chinese (`zh`) 
 Run the following command in your terminal:
 
 ```bash
+# Install into default profile
+dsh plugin add @anarkhgatsby/deepseek-harness-locale-pack
+
+# Or install into a specific profile
 dsh plugin --profile web add @anarkhgatsby/deepseek-harness-locale-pack
 ```
 

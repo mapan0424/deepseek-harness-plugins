@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -35,10 +36,9 @@ jobs:
 
       - name: Create Release Pull Request or Publish
         id: changesets
-        if: ${{ secrets.NPM_TOKEN != '' }}
         uses: changesets/action@v1
         with:
-          publish: pnpm publish:packages
+          publish: node -e "if (!process.env.NPM_TOKEN) { console.log('⚠️ No NPM_TOKEN configured in repository secrets. Skipping automated publish.'); process.exit(0); }" && pnpm publish:packages
           version: pnpm version:packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

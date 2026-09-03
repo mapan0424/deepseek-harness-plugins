@@ -1,58 +1,82 @@
-# harness-channel-imessage
+# `@anarkhgatsby/deepseek-harness-channel-imessage`
 
-DeepSeek Harness 的本机 iMessage 通道插件。插件只通过 macOS 的 `Messages.app` 和本地 `chat.db` 收发消息，不使用 `imsg` CLI、Photon 或任何云中继。
+[English](README.md) | [简体中文](README.zh-CN.md)
 
-## 隐私设计
+[![npm version](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-imessage.svg)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-imessage)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-- 消息数据不经过第三方云服务。
-- 入站消息从 `~/Library/Messages/chat.db` 只读轮询。
-- 出站消息通过 macOS `/usr/bin/osascript` 控制 `Messages.app` 发送。
-- 不需要安装额外的 CLI，也不需要配置云端 API Key。
-- 需要为 DeepSeek Harness 授予“完全磁盘访问”和“自动化 → 信息”权限。
+Native local iMessage channel plugin for **DeepSeek Harness** on macOS (100% private, zero-cloud relay, direct AppleScript & SQLite integration).
 
-## 架构
+> ⚠️ **Unofficial Disclaimer**: This project is developed and maintained independently by the open-source community. It is **NOT** an official DeepSeek or Apple Inc. product.
 
-```
-Harness Agent
-     │
-     ▼
-Cordis 通道插件（host: index.js）
-     │
-     ▼
-GatewayCore（来自 @anarkhgatsby/deepseek-harness-core）
-     │  统一消息总线：路由 / 去重 / 投递 / 流式回复
-     ▼
-LocalAdapter
-     ├── chat.db：读取入站消息
-     └── Messages.app：发送出站消息
-```
+---
 
-## 配置
+## 🌟 Local-First & Privacy Design
 
-插件保留 `local` 模式作为兼容标识，但当前没有模式选择项。配置页面只展示：
+* 🔒 **100% Local & Zero Cloud Relays**: Messages never touch any third-party cloud servers or external relay proxies.
+* 📖 **Native SQLite Inbound Reading**: Inbound messages are polled read-only directly from macOS `~/Library/Messages/chat.db`.
+* ✉️ **Native AppleScript Outbound Dispatch**: Outbound replies are sent via macOS `/usr/bin/osascript` controlling native `Messages.app`.
+* 🛡️ **Built-in Message Deduplication**: Backed by `@anarkhgatsby/deepseek-harness-core` to ensure reliable idempotent message processing.
+* 🧰 **No Third-Party CLI Required**: Works directly with native macOS system components without external dependencies like `imsg` or Photon.
 
-- `chatDb`：Messages 数据库路径，默认 `~/Library/Messages/chat.db`
-- `defaultWorkspace`：默认工作空间路径
-- 自动回复
-- 流式回复
+---
 
-收到消息后，插件会根据 sender 路由到对应工作空间，并由 Harness Agent 自动回复。
-
-## 代码结构
-
-- `index.js` — 注册 `imessage` settings namespace、启动本地网关和 `message_imessage` 工具。
-- `client.js` — 导出本地模式的客户端元数据。
-- `lib/config.mjs` — 本地模式配置 schema 与归一化逻辑。
-- `lib/adapters/local.mjs` — `chat.db` 监听与 `Messages.app` AppleScript 发送。
-- `cordis.patch.yml` — Cordis 补丁入口。
-
-## 开发
+## 📥 Installation
 
 ```bash
-node --check index.js
-node --check client.js
-node --check lib/config.mjs
-node --check lib/adapters/local.mjs
+dsh plugin add @anarkhgatsby/deepseek-harness-channel-imessage
 ```
 
-License: MIT。
+*(Recommended: Also install `@anarkhgatsby/deepseek-harness-channel-config` for visual settings)*.
+
+---
+
+## 🔐 Required macOS System Permissions
+
+Because macOS protects iMessage data with system-level privacy sandboxing, you must grant the following permissions:
+
+1. **Full Disk Access (FDA)**:
+   * Open **System Settings ➔ Privacy & Security ➔ Full Disk Access**;
+   * Add and enable **DeepSeek Harness** (or your Terminal / iTerm2 if running CLI).
+   * *(Required to read `~/Library/Messages/chat.db`)*.
+2. **Automation Permissions**:
+   * Open **System Settings ➔ Privacy & Security ➔ Automation**;
+   * Under **DeepSeek Harness** (or Terminal), ensure **Messages.app** is checked.
+   * *(Required for AppleScript to send outbound replies)*.
+
+---
+
+## ⚙️ Configuration
+
+### Method 1: Via Visual Settings (Recommended)
+Open DeepSeek Harness ➔ **Settings ➔ Channel Configuration** ➔ iMessage tab.
+
+### Method 2: Via Configuration YAML (`~/.dsh/settings.yaml`)
+```yaml
+imessage:
+  chatDb: "~/Library/Messages/chat.db"
+  defaultWorkspace: "/Users/you/dsh/default"
+  autoReply: true
+  streamReplies: false
+```
+
+---
+
+## 🛠️ Global Agent Tool (`message_imessage`)
+
+Autonomous agents can actively send iMessage texts to phone numbers or email addresses:
+
+```json
+{
+  "action": "send",
+  "channel": "imessage",
+  "target": "+1234567890",
+  "message": "Task completed successfully! 🚀"
+}
+```
+
+---
+
+## 📄 License
+
+[MIT License](./LICENSE)

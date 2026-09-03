@@ -35,6 +35,7 @@ jobs:
 
       - name: Create Release Pull Request or Publish
         id: changesets
+        if: ${{ secrets.NPM_TOKEN != '' }}
         uses: changesets/action@v1
         with:
           publish: pnpm publish:packages

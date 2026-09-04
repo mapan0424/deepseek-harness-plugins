@@ -4,12 +4,12 @@
 
 [![npm version](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-locale-pack.svg?style=flat-square&color=blue)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-locale-pack)
 [![license](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
-[![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-Plugin-orange.svg?style=flat-square)](https://github.com/mapan0424/deepseek-harness-plugins/tree/main/packages/harness-locale-pack)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/mapan0424/deepseek-harness-plugins/tree/main/packages/harness-locale-pack)
+[![DeepSeek Harness](https://img.shields.io/badge/DeepSeek%20Harness-Plugin-orange.svg?style=flat-square)](https://github.com/mapan0424/deepseek-harness-desktop)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/mapan0424/deepseek-harness-desktop)
 
 **面向 DeepSeek Harness 的全域多语言与中国少数民族语言扩展插件包**
 
-[English Documentation](README.md) · [项目主页](https://github.com/mapan0424/deepseek-harness-plugins/tree/main/packages/harness-locale-pack) · [提交问题与建议](https://github.com/mapan0424/deepseek-harness-plugins/issues)
+[English Documentation](README.md) · [项目主页](https://github.com/mapan0424/deepseek-harness-desktop) · [提交问题与建议](https://github.com/mapan0424/deepseek-harness-desktop/issues)
 
 </div>
 
@@ -17,7 +17,7 @@
 
 ## 📖 项目简介
 
-`@anarkhgatsby/deepseek-harness-locale-pack` 是一款专为 [DeepSeek Harness (DSH)](https://github.com/mapan0424/deepseek-harness-plugins/tree/main/packages/harness-locale-pack) 打造的**全域多语言与中国少数民族语言扩展插件**。
+`@anarkhgatsby/deepseek-harness-locale-pack` 是一款专为 [DeepSeek Harness (DSH)](https://github.com/mapan0424/deepseek-harness-desktop) 打造的**全域多语言与中国少数民族语言扩展插件**。
 
 DeepSeek Harness 官方原版默认仅内置了简体中文（`zh`）与英文（`en`）。本插件打破了语言壁垒，为全球用户以及少数民族地区开发者提供了包括 **藏文**、**蒙古文**、**维吾尔文**（原生 RTL 从右至左自适应）与 **凉山规范彝文** 在内的 **13 种主流语言与民族语言** 原生母语级体验。
 
@@ -70,10 +70,6 @@ DeepSeek Harness 官方原版默认仅内置了简体中文（`zh`）与英文�
 在终端运行以下命令：
 
 ```bash
-# 安装到默认环境
-dsh plugin add @anarkhgatsby/deepseek-harness-locale-pack
-
-# 或安装到指定 profile
 dsh plugin --profile web add @anarkhgatsby/deepseek-harness-locale-pack
 ```
 

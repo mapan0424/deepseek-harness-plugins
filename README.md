@@ -9,8 +9,9 @@
 | 插件名称 / 包名 | 类型 | 版本 | 核心功能与特性 | npm 页面 |
 | :--- | :---: | :---: | :--- | :---: |
 | **`@anarkhgatsby/deepseek-harness-core`**<br>`packages/harness-core` | ⚡ 基础设施 | `0.1.2` | 统一 GatewayCore 消息总线路由、消息去重、底层适配转发中枢 | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-core)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-core) |
-| **`@anarkhgatsby/deepseek-harness-channel-config`**<br>`packages/harness-channel-config` | 🎛️ 可视化配置 | `0.1.5` | 渠道设置中心前端 UI，支持飞书/企微/iMessage 运行时参数配置与热生效 | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-config)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-config) |
+| **`@anarkhgatsby/deepseek-harness-channel-config`**<br>`packages/harness-channel-config` | 🎛️ 可视化配置 | `0.1.6` | 渠道设置中心前端 UI，支持飞书/企微/iMessage/钉钉运行时参数配置与热生效 | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-config)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-config) |
 | **`@anarkhgatsby/deepseek-harness-channel-feishu`**<br>`packages/harness-channel-feishu` | 💬 协同渠道 | `0.1.2` | 飞书 / Lark 机器人渠道（支持 WebSocket 长连接、富文本/卡片/流式打字机） | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-feishu)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-feishu) |
+| **`@anarkhgatsby/deepseek-harness-channel-dingtalk`**<br>`packages/harness-channel-dingtalk` | 💬 协同渠道 | `0.1.0`（待发布） | 钉钉机器人渠道（支持 Stream 长连接与消息收发） | 暂未发布 |
 | **`@anarkhgatsby/deepseek-harness-channel-wecom`**<br>`packages/harness-channel-wecom` | 💬 协同渠道 | `0.1.3` | 企业微信应用与自建机器人渠道集成 | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-wecom)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-wecom) |
 | **`@anarkhgatsby/deepseek-harness-channel-imessage`**<br>`packages/harness-channel-imessage` | 💬 本地渠道 | `0.1.3` | macOS 本地原生 iMessage 通道（读取 Messages.app 数据库与安全分发） | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-imessage)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-imessage) |
 | **`@anarkhgatsby/deepseek-harness-insights`**<br>`packages/harness-insights` | 📊 洞察看板 | `0.1.6` | 本地优先用量统计、Token 消耗分布、对话活动热力与图表分析看板 | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-insights)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-insights) |
@@ -52,4 +53,4 @@ pnpm publish:packages
 ---
 
 ## 📖 开发者扩展指南
-如需开发一个全新的 DeepSeek Harness 插件，请参阅文档：[插件开发规范与指南 (docs/plugin-development-guide.md)](../docs/plugin-development-guide.md)。
+如需开发一个全新的 DeepSeek Harness 插件，请参阅文档：[插件开发规范与指南 (docs/plugin-development-guide.md)](./docs/plugin-development-guide.md)。

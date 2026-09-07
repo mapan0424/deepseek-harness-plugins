@@ -11,7 +11,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mapan0424/deepseek-harness-desktop.git"
+    "url": "https://github.com/mapan0424/deepseek-harness-plugins.git",
+    "directory": "packages/harness-channel-imessage"
   },
   "dsh": {
     "bundle": {
@@ -37,7 +38,7 @@
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.0.1",
     "@deepseek-ai/dsh-typert-protocol": ">=0.1.0-rc.6",
-    "@deepseek-ai/dsh-tools": "^0.1.2-alpha.5",
+    "@deepseek-ai/dsh-tools": "^0.1.2-rc.1",
     "@deepseek-ai/schemastery": ">=3.18.0"
   }
 }

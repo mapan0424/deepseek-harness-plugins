@@ -1,7 +1,7 @@
 {
-  "name": "@anarkhgatsby/deepseek-harness-locale-pack",
-  "version": "0.1.4",
-  "description": "Multi-language & ethnic language pack for DeepSeek Harness (Tibetan, Mongolian, Uyghur, Nuosu Yi, Traditional Chinese, Japanese, Korean, etc.)",
+  "name": "@anarkhgatsby/deepseek-harness-channel-dingtalk",
+  "version": "0.1.0",
+  "description": "Channel plugin for DeepSeek Harness: 钉钉 behind one message bus. Thin facade on @anarkhgatsby/deepseek-harness-core.",
   "type": "module",
   "main": "./index.js",
   "exports": {
@@ -12,7 +12,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/mapan0424/deepseek-harness-plugins.git",
-    "directory": "packages/harness-locale-pack"
+    "directory": "packages/harness-channel-dingtalk"
   },
   "dsh": {
     "bundle": {
@@ -32,17 +32,22 @@
     "index.js",
     "client.js",
     "cordis.patch.yml",
+    "lib/config.mjs",
+    "lib/adapters/dingtalk.mjs",
     "README.md",
-    "README.zh-CN.md",
     "LICENSE"
   ],
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
+  "dependencies": {
+    "@anarkhgatsby/deepseek-harness-core": "^0.1.2"
+  },
+  "optionalDependencies": {
+    "ws": "^8.18.0"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.0.1",
-    "@deepseek-ai/dsh-client-locale": "^0.1.2-rc.1",
+    "@deepseek-ai/dsh-typert-protocol": ">=0.1.0-rc.6",
+    "@deepseek-ai/dsh-tools": "^0.1.2-rc.1",
     "@deepseek-ai/schemastery": ">=3.18.0"
   }
 }

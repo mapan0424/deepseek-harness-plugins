@@ -1,9 +1,9 @@
 /**
- * index.js — harness-channel-wecom host 入口（薄壳，托管消息总线）
+ * index.js — harness-channel-dingtalk host 入口（薄壳，托管消息总线）
  *
- * 开放 API。自建应用回调收消息 + 发送接口发。需 corpId/agentId/corpSecret/callbackToken。
+ * 开放 API。企业内部应用机器人，Stream/webhook 收消息，robot 接口发。需 appKey/appSecret。
  * 消息总线（GatewayCore）与 logger 均从共享包 `@anarkhgatsby/deepseek-harness-core` 导入，
- * 本插件只做"平台门面"：注册 wecom settings namespace、接适配器、注册 message 工具。
+ * 本插件只做"平台门面"：注册 dingtalk settings namespace、接适配器、注册 message 工具。
  */
 import { TypertRemoteService } from "@deepseek-ai/dsh-typert-protocol";
 import z from "@deepseek-ai/schemastery";
@@ -11,10 +11,10 @@ import { defineTool } from "@deepseek-ai/dsh-tools";
 import { homedir } from "node:os";
 import { join } from "node:path";
 import { GatewayCore, createChannelLogger } from "@anarkhgatsby/deepseek-harness-core";
-import { WecomAdapter } from "./lib/adapters/wecom.mjs";
+import { DingtalkAdapter } from "./lib/adapters/dingtalk.mjs";
 import { normalizeSettings } from "./lib/config.mjs";
 
-export const name = "harness-channel-wecom";
+export const name = "harness-channel-dingtalk";
 
 export const inject = [
   "typert",
@@ -32,18 +32,14 @@ export const inject = [
 
 export const Config = z.object({
   settingsPath: z.string().default(join(homedir(), ".dsh", "settings.yaml")),
-  statePath: z.string().default(join(homedir(), ".dsh", "wecom-gateway-state.json")),
+  statePath: z.string().default(join(homedir(), ".dsh", "dingtalk-gateway-state.json")),
 });
 
-/** `wecom` settings namespace schema。 */
+/** `dingtalk` settings namespace schema。 */
 const GatewaySchema = z.object({
   routes: z.dict(z.string()),
-  botId: z.string(),
-  secret: z.string(),
-  corpId: z.string(),
-  agentId: z.string(),
-  corpSecret: z.string(),
-  callbackToken: z.string(),
+  appKey: z.string(),
+  appSecret: z.string(),
   defaultWorkspace: z.string(),
   autoReply: z.boolean(),
   streamReplies: z.boolean(),
@@ -65,23 +61,23 @@ const setPayloadSchema = parseObj();
 const setResultSchema = parseObj();
 
 const MANIFEST = {
-  package: "harness-channel-wecom",
+  package: "harness-channel-dingtalk",
   face: "host",
   schemas: [],
   invocations: [
     {
-      id: "harness-channel-wecom#wecomGateway/getConfig",
-      service: "wecomGateway",
-      namespace: "wecomGateway",
+      id: "harness-channel-dingtalk#dingtalkGateway/getConfig",
+      service: "dingtalkGateway",
+      namespace: "dingtalkGateway",
       method: "getConfig",
       invocation: { kind: "direct" },
       parameters: [],
-      result: { mode: "strict", typeSymbol: "harness-channel-wecom#GatewayConfig", schema: getResultSchema },
+      result: { mode: "strict", typeSymbol: "harness-channel-dingtalk#GatewayConfig", schema: getResultSchema },
     },
     {
-      id: "harness-channel-wecom#wecomGateway/setConfig",
-      service: "wecomGateway",
-      namespace: "wecomGateway",
+      id: "harness-channel-dingtalk#dingtalkGateway/setConfig",
+      service: "dingtalkGateway",
+      namespace: "dingtalkGateway",
       method: "setConfig",
       invocation: { kind: "direct" },
       parameters: [
@@ -89,10 +85,10 @@ const MANIFEST = {
           name: "payload",
           wire: "payload",
           source: "json",
-          codec: { mode: "strict", typeSymbol: "harness-channel-wecom#SetPayload", schema: setPayloadSchema },
+          codec: { mode: "strict", typeSymbol: "harness-channel-dingtalk#SetPayload", schema: setPayloadSchema },
         },
       ],
-      result: { mode: "strict", typeSymbol: "harness-channel-wecom#SetResult", schema: setResultSchema },
+      result: { mode: "strict", typeSymbol: "harness-channel-dingtalk#SetResult", schema: setResultSchema },
     },
   ],
   model: { services: [], events: [], objects: [] },
@@ -100,7 +96,7 @@ const MANIFEST = {
 
 class GatewayService extends TypertRemoteService {
   constructor(ctx, scope, adapter) {
-    super(ctx, "wecomGateway");
+    super(ctx, "dingtalkGateway");
     this.scope = scope;
     this.adapter = adapter;
   }
@@ -119,15 +115,11 @@ class GatewayService extends TypertRemoteService {
 }
 
 export function apply(ctx, config) {
-  const scope = ctx.settings.register("wecom", GatewaySchema, {
+  const scope = ctx.settings.register("dingtalk", GatewaySchema, {
     base: {
       routes: {},
-      botId: "",
-      secret: "",
-      corpId: "",
-      agentId: "",
-      corpSecret: "",
-      callbackToken: "",
+      appKey: "",
+      appSecret: "",
       defaultWorkspace: join(homedir(), "dsh", "default"),
       autoReply: true,
       streamReplies: true,
@@ -137,12 +129,12 @@ export function apply(ctx, config) {
     },
   });
 
-  const log = createChannelLogger("wecom", ctx.logger);
+  const log = createChannelLogger("dingtalk", ctx.logger);
 
   const getConfig = () => normalizeSettings(scope.get());
-  const adapter = new WecomAdapter({ getConfig, log });
+  const adapter = new DingtalkAdapter({ getConfig, log });
   const core = new GatewayCore({
-    tag: "wecom",
+    tag: "dingtalk",
     adapter,
     agents: ctx.get("agents"),
     defaultModel: ctx.get("agentDefaultModel"),
@@ -156,11 +148,11 @@ export function apply(ctx, config) {
   });
 
   new GatewayService(ctx, scope, adapter);
-  ctx.effect(() => ctx.typert.register(MANIFEST), "harness-channel-wecom: typert manifest");
+  ctx.effect(() => ctx.typert.register(MANIFEST), "harness-channel-dingtalk: typert manifest");
 
-  // 包装全局 userQuestions provider：本通道会话的 ask 走企业微信文本提问，GUI 会话仍走弹窗
+  // 包装全局 userQuestions provider：本通道会话的 ask 走钉钉文本提问，GUI 会话仍走弹窗
   ctx.on("dispose", GatewayCore.wrapGlobalUserQuestions(ctx.userQuestions, log));
-  // 包装全局 approval：本通道会话的沙箱权限申请走企业微信文本确认（1=批准/2=拒绝）
+  // 包装全局 approval：本通道会话的沙箱权限申请走钉钉文本确认（1=批准/2=拒绝）
   ctx.on("dispose", GatewayCore.wrapGlobalApproval(ctx, log));
 
   ctx.on("dispose", () => core.stopListener());
@@ -173,11 +165,11 @@ export function apply(ctx, config) {
   });
 
   const messageTool = defineTool({
-    name: "message_wecom",
-    description: "通过企业微信向用户或群发送文本。用于主动通知/提醒用户。",
+    name: "message_dingtalk",
+    description: "通过钉钉向用户或群发送文本。用于主动通知/提醒用户。",
     parameters: {
       action: { type: "string", required: true, description: "操作类型，目前仅支持 send" },
-      channel: { type: "string", required: true, description: "发送渠道：wecom" },
+      channel: { type: "string", required: true, description: "发送渠道：dingtalk" },
       target: { type: "string", required: true, description: "目标：用户/群标识" },
       message: { type: "string", required: true, description: "要发送的文本内容" },
     },
@@ -206,5 +198,5 @@ export function apply(ctx, config) {
     },
   });
   ctx.tools.register(messageTool);
-  log.info("已注册全局 message 工具（企业微信 发送）");
+  log.info("已注册全局 message 工具（钉钉 发送）");
 }

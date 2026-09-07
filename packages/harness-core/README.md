@@ -96,7 +96,7 @@ Set `DSH_CHANNEL_DEBUG=1` to enable temporary channel diagnostics. Debug output 
 
 ## Compatibility
 
-The `0.1.3` line targets the DeepSeek Harness `0.1.2-rc.1` dependency family. Keep the Harness runtime and the channel packages on compatible release lines when upgrading.
+The `0.1.4` line targets the DeepSeek Harness `0.1.2-rc.1` dependency family. Keep the Harness runtime and the channel packages on compatible release lines when upgrading.
 
 ## License
 

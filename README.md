@@ -27,7 +27,7 @@ The versions below are the versions currently represented by this source tree. A
 
 | Package | Role | Source version | npm status |
 | --- | --- | :---: | --- |
-| [deepseek-harness-core](packages/harness-core) | Shared gateway, sessions, routing, deduplication, approvals | 0.1.3 | Pending publish · [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-core) |
+| [deepseek-harness-core](packages/harness-core) | Shared gateway, sessions, routing, deduplication, approvals | 0.1.4 | 0.1.3 published · 0.1.4 pending · [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-core) |
 | [deepseek-harness-channel-config](packages/harness-channel-config) | Visual configuration UI for installed channels | 0.1.6 | Pending publish · [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-config) |
 | [deepseek-harness-channel-feishu](packages/harness-channel-feishu) | Feishu / Lark WebSocket channel | 0.1.2 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-feishu) |
 | [deepseek-harness-channel-dingtalk](packages/harness-channel-dingtalk) | DingTalk Stream channel | 0.1.0 | Pending publish · [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-dingtalk) |

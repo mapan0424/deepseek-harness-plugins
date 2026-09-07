@@ -6,7 +6,7 @@ This directory contains the independently installable packages published from th
 
 | Package | Current source version | Description | Documentation |
 | --- | :---: | --- | --- |
-| @anarkhgatsby/deepseek-harness-core | 0.1.3 | Shared gateway core for routing, sessions, deduplication, approvals, and delivery. | [English](harness-core/README.md) · [中文](harness-core/README.zh-CN.md) |
+| @anarkhgatsby/deepseek-harness-core | 0.1.4 | Shared gateway core for routing, sessions, deduplication, approvals, and delivery. | [English](harness-core/README.md) · [中文](harness-core/README.zh-CN.md) |
 | @anarkhgatsby/deepseek-harness-channel-config | 0.1.6 | Visual configuration center for installed channel runtimes. | [English](harness-channel-config/README.md) · [中文](harness-channel-config/README.zh-CN.md) |
 | @anarkhgatsby/deepseek-harness-channel-feishu | 0.1.2 | Feishu / Lark WebSocket channel. | [English](harness-channel-feishu/README.md) · [中文](harness-channel-feishu/README.zh-CN.md) |
 | @anarkhgatsby/deepseek-harness-channel-dingtalk | 0.1.0 | DingTalk Stream channel. | [English](harness-channel-dingtalk/README.md) · [中文](harness-channel-dingtalk/README.zh-CN.md) |

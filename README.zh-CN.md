@@ -32,7 +32,7 @@
 
 | 插件包名 | 最新版本 | 功能说明 | 安装命令 (`dsh plugin`) | npm 页面 |
 | :--- | :---: | :--- | :--- | :---: |
-| **`@anarkhgatsby/deepseek-harness-core`** | `0.1.3`（待发布） | 统一 `GatewayCore` 消息总线路由中枢，负责消息去重、会话分发与渠道底层适配。 | `dsh plugin add @anarkhgatsby/deepseek-harness-core` | 暂未发布 |
+| **`@anarkhgatsby/deepseek-harness-core`** | `0.1.4`（待发布） | 统一 `GatewayCore` 消息总线路由中枢，负责消息去重、会话分发与渠道底层适配。 | `dsh plugin add @anarkhgatsby/deepseek-harness-core` | 已发布 `0.1.3` |
 | **`@anarkhgatsby/deepseek-harness-channel-config`** | `0.1.6`（待发布） | 渠道可视化设置中心前端 UI，支持飞书/企微/iMessage/钉钉运行时参数在线配置与热重载。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-config` | 暂未发布 |
 
 ---

@@ -96,7 +96,7 @@ await gateway.startListener();
 
 ## 兼容性
 
-`0.1.3` 面向 DeepSeek Harness `0.1.2-rc.1` 依赖系列。升级时请保持 Harness 运行时与各渠道插件处于兼容的版本线。
+`0.1.4` 面向 DeepSeek Harness `0.1.2-rc.1` 依赖系列。升级时请保持 Harness 运行时与各渠道插件处于兼容的版本线。
 
 ## 开源协议
 

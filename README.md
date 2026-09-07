@@ -1,56 +1,154 @@
-# 🧩 DeepSeek Harness Plugins (社区插件矩阵)
+# DeepSeek Harness Plugins
 
-本项目 Monorepo 统一托管和维护面向 **DeepSeek Harness** 的非官方社区插件。
+[简体中文](README.zh-CN.md) | [Plugin development guide](docs/plugin-development-guide.md)
 
----
+[![CI](https://github.com/mapan0424/deepseek-harness-plugins/actions/workflows/ci.yml/badge.svg)](https://github.com/mapan0424/deepseek-harness-plugins/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![pnpm workspace](https://img.shields.io/badge/pnpm-workspace-orange.svg)](https://pnpm.io/workspaces)
 
-## 📦 插件矩阵一览
+An independently maintained community monorepo of plugins for **DeepSeek Harness**.
 
-| 插件名称 / 包名 | 类型 | 版本 | 核心功能与特性 | npm 页面 |
-| :--- | :---: | :---: | :--- | :---: |
-| **`@anarkhgatsby/deepseek-harness-core`**<br>`packages/harness-core` | ⚡ 基础设施 | `0.1.2` | 统一 GatewayCore 消息总线路由、消息去重、底层适配转发中枢 | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-core)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-core) |
-| **`@anarkhgatsby/deepseek-harness-channel-config`**<br>`packages/harness-channel-config` | 🎛️ 可视化配置 | `0.1.6` | 渠道设置中心前端 UI，支持飞书/企微/iMessage/钉钉运行时参数配置与热生效 | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-config)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-config) |
-| **`@anarkhgatsby/deepseek-harness-channel-feishu`**<br>`packages/harness-channel-feishu` | 💬 协同渠道 | `0.1.2` | 飞书 / Lark 机器人渠道（支持 WebSocket 长连接、富文本/卡片/流式打字机） | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-feishu)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-feishu) |
-| **`@anarkhgatsby/deepseek-harness-channel-dingtalk`**<br>`packages/harness-channel-dingtalk` | 💬 协同渠道 | `0.1.0`（待发布） | 钉钉机器人渠道（支持 Stream 长连接与消息收发） | 暂未发布 |
-| **`@anarkhgatsby/deepseek-harness-channel-wecom`**<br>`packages/harness-channel-wecom` | 💬 协同渠道 | `0.1.3` | 企业微信应用与自建机器人渠道集成 | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-wecom)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-wecom) |
-| **`@anarkhgatsby/deepseek-harness-channel-imessage`**<br>`packages/harness-channel-imessage` | 💬 本地渠道 | `0.1.3` | macOS 本地原生 iMessage 通道（读取 Messages.app 数据库与安全分发） | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-imessage)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-imessage) |
-| **`@anarkhgatsby/deepseek-harness-insights`**<br>`packages/harness-insights` | 📊 洞察看板 | `0.1.6` | 本地优先用量统计、Token 消耗分布、对话活动热力与图表分析看板 | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-insights)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-insights) |
-| **`@anarkhgatsby/deepseek-harness-locale-pack`**<br>`packages/harness-locale-pack` | 🌐 语言增强 | `0.1.4` | 多语言与民族语言包（藏文、蒙文、维文、彝文、繁中、日文、韩文等） | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-locale-pack)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-locale-pack) |
+> ⚠️ **Unofficial project** — this repository is developed and maintained by the open-source community. It is not an official DeepSeek product and is not sponsored, endorsed, or operated by DeepSeek.
 
----
+## Overview
 
-## 🛠️ 本地开发与发包工作流
+This repository packages the integrations that sit around the Harness runtime:
 
-本项目使用 **pnpm Workspaces** 与 **Changesets** 驱动：
+* a shared **GatewayCore** for channel-neutral routing, sessions, deduplication, and delivery;
+* a visual configuration center for installed messaging channels;
+* Feishu/Lark, DingTalk, WeCom, and native macOS iMessage transports;
+* a local usage-insights dashboard and an extended locale pack.
 
-### 1. 安装依赖与本地软链
-```bash
+Each integration is independently installable. Channel packages keep platform-specific authentication and I/O at the edge, while common session behavior remains in Core.
+
+## Package matrix
+
+The versions below are the versions currently represented by this source tree. A version marked **pending publish** is ready in the repository but has not yet been published to npm.
+
+| Package | Role | Source version | npm status |
+| --- | --- | :---: | --- |
+| [deepseek-harness-core](packages/harness-core) | Shared gateway, sessions, routing, deduplication, approvals | 0.1.3 | Pending publish · [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-core) |
+| [deepseek-harness-channel-config](packages/harness-channel-config) | Visual configuration UI for installed channels | 0.1.6 | Pending publish · [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-config) |
+| [deepseek-harness-channel-feishu](packages/harness-channel-feishu) | Feishu / Lark WebSocket channel | 0.1.2 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-feishu) |
+| [deepseek-harness-channel-dingtalk](packages/harness-channel-dingtalk) | DingTalk Stream channel | 0.1.0 | Pending publish · [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-dingtalk) |
+| [deepseek-harness-channel-wecom](packages/harness-channel-wecom) | WeCom AI Bot WebSocket channel | 0.1.4 | Pending publish · [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-wecom) |
+| [deepseek-harness-channel-imessage](packages/harness-channel-imessage) | Native local macOS iMessage channel | 0.1.4 | Pending publish · [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-imessage) |
+| [deepseek-harness-insights](packages/harness-insights) | Local-first usage and activity dashboard | 0.1.6 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-insights) |
+| [deepseek-harness-locale-pack](packages/harness-locale-pack) | Additional interface and minority-language locales | 0.1.4 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-locale-pack) |
+
+Every package directory contains an English README and a [简体中文 README](README.zh-CN.md) where applicable. The package-specific documents are the source of truth for platform credentials and configuration fields.
+
+## Architecture
+
+~~~text
+DeepSeek Harness host
+        │
+        ├── channel-config ─── settings UI and runtime status
+        │
+        ├── GatewayCore ────── sessions, routing, deduplication, delivery
+        │        │
+        │        ├── Feishu / Lark adapter
+        │        ├── DingTalk adapter
+        │        ├── WeCom adapter
+        │        └── macOS iMessage adapter
+        │
+        ├── insights ───────── usage projection and analytics UI
+        └── locale-pack ────── additional interface locales
+~~~
+
+Channel-originated approval and userQuestions requests are routed back to the originating conversation when the channel supports it. Sessions created from the Harness desktop UI continue to use the native GUI flow.
+
+## Installation
+
+Install only the packages you need into the active Harness profile:
+
+~~~bash
+dsh plugin add @anarkhgatsby/deepseek-harness-core
+dsh plugin add @anarkhgatsby/deepseek-harness-channel-config
+dsh plugin add @anarkhgatsby/deepseek-harness-channel-feishu
+~~~
+
+For a named profile:
+
+~~~bash
+dsh plugin --profile work add @anarkhgatsby/deepseek-harness-channel-config
+dsh plugin --profile work add @anarkhgatsby/deepseek-harness-channel-feishu
+dsh --profile work
+~~~
+
+Most channel packages resolve deepseek-harness-core as a dependency. Installing the configuration center alone does not connect a channel; install the corresponding runtime package and configure its credentials.
+
+### Platform notes
+
+* Feishu/Lark, DingTalk, and WeCom use their respective platform credentials and network transports.
+* iMessage is **macOS-only**. It reads the local Messages database and sends through Messages.app; Windows desktop bundles intentionally exclude it.
+* Native iMessage use requires Full Disk Access and Automation permission for the Harness host to access Messages.app.
+* Keep credentials in the local Harness profile or environment variables. Never commit secrets to this repository.
+
+## Configuration examples
+
+The optional configuration package exposes the same settings through the Harness UI. The following namespaces can also be configured in the active profile:
+
+~~~yaml
+feishu:
+  appId: "cli_xxxxxxxxx"
+  appSecret: "replace-me"
+  defaultWorkspace: "/Users/you/dsh/workspace"
+  autoReply: true
+  streamReplies: true
+
+dingtalk:
+  appKey: "dingxxxxxxxx"
+  appSecret: "replace-me"
+  defaultWorkspace: "/Users/you/dsh/workspace"
+
+imessage:
+  mode: "local"
+  chatDb: "/Users/you/Library/Messages/chat.db"
+  defaultWorkspace: "/Users/you/dsh/workspace"
+  autoReply: true
+~~~
+
+See the channel README before configuring production credentials:
+
+* [Feishu / Lark](packages/harness-channel-feishu/README.md)
+* [DingTalk](packages/harness-channel-dingtalk/README.md)
+* [WeCom](packages/harness-channel-wecom/README.md)
+* [native iMessage](packages/harness-channel-imessage/README.md)
+* [visual configuration](packages/harness-channel-config/README.md)
+
+## Development
+
+~~~bash
+git clone https://github.com/mapan0424/deepseek-harness-plugins.git
+cd deepseek-harness-plugins
 pnpm install
-```
-所有 `packages/*` 之间将自动建立软链接，修改底层插件（如 `harness-core`）上层插件即刻生效，无需繁琐的 `npm link`。
+pnpm test
+~~~
 
-### 2. 运行测试套件
-```bash
-pnpm test:insights
-```
+The workspace uses pnpm and Changesets. Package-local checks can be run directly, for example:
 
-### 3. 创建版本更新记录 (Changeset)
-当你修改了一个或多个插件后，在根目录下运行：
-```bash
-pnpm changeset
-```
-根据 CLI 交互提示勾选本次修改了哪些包、是 patch / minor / major 变更，并输入更新说明。
+~~~bash
+node --check packages/harness-channel-dingtalk/index.js
+node --check packages/harness-channel-imessage/lib/adapters/local.mjs
+~~~
 
-### 4. 发布与同步到 npm
-```bash
-# 自动提升各子包版本并生成 CHANGELOG.md
-pnpm version:packages
+### Release workflow
 
-# 发布有版本变动的包至 npm
-pnpm publish:packages
-```
+1. Make the package change and add a Changeset with pnpm changeset.
+2. Review the generated version and changelog with pnpm version:packages.
+3. Verify the package tarball with npm pack --dry-run from the package directory.
+4. Publish only the packages with an intentional version change using pnpm publish:packages or the package-local npm command.
 
----
+Publishing may require npm account 2FA. A package is not publicly installable until the publish command completes successfully and the version appears on npm.
 
-## 📖 开发者扩展指南
-如需开发一个全新的 DeepSeek Harness 插件，请参阅文档：[插件开发规范与指南 (docs/plugin-development-guide.md)](./docs/plugin-development-guide.md)。
+## Documentation
+
+* [Plugin development guide](docs/plugin-development-guide.md)
+* [Core runtime](packages/harness-core/README.md)
+* [Usage Insights](packages/harness-insights/README.md)
+* [Locale pack](packages/harness-locale-pack/README.md)
+
+## License
+
+All packages in this repository are released under the [MIT License](LICENSE), unless a package directory states otherwise.

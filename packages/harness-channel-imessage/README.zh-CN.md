@@ -54,11 +54,29 @@ dsh plugin add @anarkhgatsby/deepseek-harness-channel-imessage
 ### 方式 2：配置文件方式 (`~/.dsh/settings.yaml`)
 ```yaml
 imessage:
-  chatDb: "~/Library/Messages/chat.db"           # 默认数据库路径
+  mode: "local"                                   # 当前唯一支持的模式
+  chatDb: "/Users/你的用户名/Library/Messages/chat.db"
   defaultWorkspace: "/Users/you/dsh/default"     # 默认工作区
   autoReply: true
-  streamReplies: false
+  streamReplies: true
+  toolCallReplies: true
+  allowlist: []
+  routes: {}
 ```
+
+本地开发时可使用 `IMSG_CHAT_DB` 和 `IMSG_DEFAULT_WORKSPACE` 环境变量覆盖默认值。覆盖 `chatDb` 时建议使用绝对路径。
+
+---
+
+## 🔐 审批与 Agent 提问
+
+对于从 iMessage 会话创建的 Agent，沙箱或工具权限请求会发送回同一个“信息”会话：
+
+* 回复 `1`：批准本次操作；
+* 回复 `2` 或其他非批准文本：拒绝操作；
+* 对于 `userQuestions`，回复显示的选项编号，多选时用逗号分隔。
+
+桌面 GUI 会话仍然使用 Harness 原生 GUI 审批弹窗。如果在超时时间内没有回复，审批或提问会自动失败。
 
 ---
 
@@ -74,6 +92,24 @@ imessage:
   "message": "构建与测试已全部完成 🚀"
 }
 ```
+
+---
+
+## ❓ 常见问题与排错
+
+| 现象 | 排查方向 |
+| --- | --- |
+| 无法读取 `chat.db` | 为 DeepSeek Harness 开启“完全磁盘访问”；如果通过终端启动，则为终端 / iTerm2 授权。 |
+| 能收消息但无法回复 | 在“系统设置 → 隐私与安全性 → 自动化”中允许 DeepSeek Harness 控制“信息”。 |
+| 没有显示会话 | 检查数据库路径、Messages 登录账号，以及运行环境是否为 macOS。 |
+| 审批弹出 GUI | 当前会话没有识别为 iMessage 渠道会话，检查 Core 状态映射和运行时日志。 |
+| 回复重复 | 确认同一个 `chat.db` 没有启动多个 iMessage 运行时实例。 |
+
+---
+
+## 兼容性
+
+`0.1.4` 面向 DeepSeek Harness `0.1.2-rc.1` 依赖系列。
 
 ---
 

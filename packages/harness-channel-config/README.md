@@ -19,6 +19,13 @@ Visual channel configuration center for **DeepSeek Harness**. It adds a settings
 
 The package is a configuration UI, not a message transport. Installing it alone does not connect any channel.
 
+## What's new in 0.1.7
+
+- The channel list is runtime-driven, so newly installed supported channels are not hidden by a hard-coded client-side filter.
+- DingTalk uses the official light/dark visual assets with the same sizing treatment as the other channel cards.
+- AppKey placeholders no longer resemble a real DingTalk credential.
+- The settings page keeps platform-specific authorization guidance visible, including the macOS permissions required by iMessage.
+
 ## Installation
 
 ```bash
@@ -62,7 +69,7 @@ Credentials remain in the local Harness settings profile. Treat the profile dire
 * **No channel card appears:** install the corresponding runtime plugin, then refresh the settings page.
 * **Saved but not connected:** verify credentials, platform bot capabilities, and the runtime log; configuration saving and platform authentication are separate steps.
 * **iMessage shows authorization required:** grant Full Disk Access to DeepSeek Harness and Automation access to Messages in macOS System Settings, then restart the app.
-* **DingTalk or WeCom is unavailable on Windows:** these channels require their platform credentials; iMessage is intentionally excluded from the Windows desktop bundle.
+* **A channel is unavailable on Windows:** iMessage is intentionally excluded from the Windows desktop bundle because it depends on macOS Messages.app. Feishu, DingTalk, and WeCom still require their respective platform credentials and capabilities.
 
 ## Compatibility
 

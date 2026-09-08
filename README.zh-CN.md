@@ -44,7 +44,7 @@
 | **`@anarkhgatsby/deepseek-harness-channel-feishu`** | `0.1.2` | 飞书 / Lark 机器人渠道（支持 WebSocket 长连接免公网 IP、富文本/卡片/打字机流式输出）。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-feishu` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-feishu)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-feishu) |
 | **`@anarkhgatsby/deepseek-harness-channel-dingtalk`** | `0.1.0` | 钉钉机器人接入渠道，支持 Stream 长连接。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-dingtalk` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-dingtalk)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-dingtalk) |
 | **`@anarkhgatsby/deepseek-harness-channel-wecom`** | `0.1.4` | 企业微信应用及自建机器人接入渠道。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-wecom` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-wecom)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-wecom) |
-| **`@anarkhgatsby/deepseek-harness-channel-imessage`** | `0.1.4` | macOS 本地原生 iMessage 消息通道（直连 Messages.app 与本地 SQLite 数据库）。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-imessage` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-imessage)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-imessage) |
+| **`@anarkhgatsby/deepseek-harness-channel-imessage`** | `0.1.5`（待发布） | macOS 本地原生 iMessage 消息通道（直连 Messages.app 与本地 SQLite 数据库，并将 Markdown 回复转换为易读纯文本）。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-imessage` | 已发布 `0.1.4` |
 
 ---
 

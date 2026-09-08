@@ -8,6 +8,12 @@ Native local iMessage channel plugin for **DeepSeek Harness**. It uses macOS `Me
 
 > ⚠️ **Unofficial project** — independently developed and maintained by the open-source community. It is not an official DeepSeek or Apple product.
 
+## What's new in 0.1.5
+
+- iMessage replies are normalized to readable plain text before they are sent through Messages.app.
+- Common Markdown markers such as `**bold**`, `*italic*`, backticks, and strikethrough no longer appear in the conversation.
+- Lists, headings, links, and fenced code blocks receive channel-appropriate plain-text formatting.
+
 ## Platform and installation
 
 This plugin is macOS-only. Windows desktop bundles intentionally exclude iMessage because Windows has no Messages.app or AppleScript transport.
@@ -19,13 +25,13 @@ dsh plugin add @anarkhgatsby/deepseek-harness-channel-config
 
 The configuration package is optional. The shared `@anarkhgatsby/deepseek-harness-core` package is resolved as a dependency.
 
-## 隐私设计
+## Privacy and security
 
-- 消息数据不经过第三方云服务。
-- 入站消息从 `~/Library/Messages/chat.db` 只读轮询。
-- 出站消息通过 macOS `/usr/bin/osascript` 控制 `Messages.app` 发送。
-- 不需要安装额外的 CLI，也不需要配置云端 API Key。
-- 需要为 DeepSeek Harness 授予“完全磁盘访问”和“自动化 → 信息”权限。
+- Message data stays on the local Mac and is not sent through a third-party relay.
+- Incoming messages are read from `~/Library/Messages/chat.db` in read-only mode.
+- Outgoing messages are sent through macOS `/usr/bin/osascript` controlling `Messages.app`.
+- No additional CLI or cloud API key is required.
+- DeepSeek Harness needs Full Disk Access and Automation permission to control Messages.app.
 
 ## 架构
 
@@ -91,13 +97,13 @@ For an Agent session created from iMessage, sandbox or tool permission requests 
 
 Requests from desktop GUI sessions continue to use the native Harness GUI dialog. Approval and question prompts time out if no answer is received within the runtime window.
 
-## 代码结构
+## Code structure
 
-- `index.js` — 注册 `imessage` settings namespace、启动本地网关和 `message_imessage` 工具。
-- `client.js` — 导出本地模式的客户端元数据。
-- `lib/config.mjs` — 本地模式配置 schema 与归一化逻辑。
-- `lib/adapters/local.mjs` — `chat.db` 监听与 `Messages.app` AppleScript 发送。
-- `cordis.patch.yml` — Cordis 补丁入口。
+- `index.js` — registers the `imessage` settings namespace, local gateway, and `message_imessage` tool.
+- `client.js` — exports client metadata for the local mode.
+- `lib/config.mjs` — local-mode schema and settings normalization.
+- `lib/adapters/local.mjs` — `chat.db` polling and Messages.app AppleScript delivery.
+- `cordis.patch.yml` — Cordis bundle patch entry.
 
 ## Troubleshooting
 

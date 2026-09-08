@@ -28,11 +28,11 @@ The versions below are the versions currently represented by this source tree. T
 | Package | Role | Source version | npm status |
 | --- | --- | :---: | --- |
 | [deepseek-harness-core](packages/harness-core) | Shared gateway, sessions, routing, deduplication, approvals | 0.1.4 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-core) |
-| [deepseek-harness-channel-config](packages/harness-channel-config) | Visual configuration UI for installed channels | 0.1.7 | 0.1.6 published · 0.1.7 pending · [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-config) |
+| [deepseek-harness-channel-config](packages/harness-channel-config) | Visual configuration UI for installed channels | 0.1.7 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-config) |
 | [deepseek-harness-channel-feishu](packages/harness-channel-feishu) | Feishu / Lark WebSocket channel | 0.1.2 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-feishu) |
 | [deepseek-harness-channel-dingtalk](packages/harness-channel-dingtalk) | DingTalk Stream channel | 0.1.0 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-dingtalk) |
 | [deepseek-harness-channel-wecom](packages/harness-channel-wecom) | WeCom AI Bot WebSocket channel | 0.1.4 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-wecom) |
-| [deepseek-harness-channel-imessage](packages/harness-channel-imessage) | Native local macOS iMessage channel | 0.1.5 | 0.1.4 published · 0.1.5 pending · [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-imessage) |
+| [deepseek-harness-channel-imessage](packages/harness-channel-imessage) | Native local macOS iMessage channel | 0.1.5 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-imessage) |
 | [deepseek-harness-insights](packages/harness-insights) | Local-first usage and activity dashboard | 0.1.6 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-insights) |
 | [deepseek-harness-locale-pack](packages/harness-locale-pack) | Additional interface and minority-language locales | 0.1.4 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-locale-pack) |
 

@@ -69,6 +69,18 @@ imessage:
 
 Defaults can be overridden during local development with `IMSG_CHAT_DB` and `IMSG_DEFAULT_WORKSPACE`. Incoming messages are routed by sender to the selected workspace and then delivered to the Harness Agent.
 
+## Outbound message formatting
+
+Messages.app sends plain text, so the adapter applies a small readability pass before delivering an iMessage reply:
+
+- Markdown emphasis, strikethrough, and inline-code markers are removed;
+- headings become plain-text headings;
+- unordered lists use `•` bullets;
+- Markdown links keep both their label and URL;
+- fenced code blocks are rendered under a `代码：` label with indentation preserved.
+
+This conversion is limited to iMessage outbound messages. Web, Feishu, DingTalk, and other rich-text-capable channels keep their existing rendering behavior.
+
 ## Approvals and agent questions
 
 For an Agent session created from iMessage, sandbox or tool permission requests are sent to the same Messages conversation:
@@ -108,7 +120,7 @@ node --check lib/adapters/local.mjs
 
 ## Compatibility
 
-The `0.1.4` line targets the DeepSeek Harness `0.1.2-rc.1` dependency family.
+The `0.1.5` line targets the DeepSeek Harness `0.1.2-rc.1` dependency family.
 
 ## License
 

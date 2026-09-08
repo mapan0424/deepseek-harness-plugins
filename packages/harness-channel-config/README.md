@@ -66,7 +66,7 @@ Credentials remain in the local Harness settings profile. Treat the profile dire
 
 ## Compatibility
 
-The `0.1.6` line targets the DeepSeek Harness `0.1.2-rc.1` client runtime family. Channel configuration is most useful when the UI package and channel runtimes are installed into the same profile.
+The `0.1.7` line targets the DeepSeek Harness `0.1.2-rc.1` client runtime family. Channel configuration is most useful when the UI package and channel runtimes are installed into the same profile.
 
 ## License
 

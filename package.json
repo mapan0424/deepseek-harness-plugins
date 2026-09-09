@@ -10,7 +10,7 @@
     "changeset": "changeset",
     "version:packages": "changeset version",
     "publish:packages": "changeset publish",
-    "test": "node packages/harness-insights/tests/projection.test.mjs && node packages/harness-insights/tests/client-activity.test.mjs && node packages/harness-insights/tests/manifest.test.mjs"
+    "test": "node packages/harness-insights/tests/projection.test.mjs && node packages/harness-insights/tests/client-activity.test.mjs && node packages/harness-insights/tests/manifest.test.mjs && node packages/harness-insights/tests/history-backfill.test.mjs"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.12"

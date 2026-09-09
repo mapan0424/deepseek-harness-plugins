@@ -33,7 +33,7 @@ The versions below are the versions currently represented by this source tree. T
 | [deepseek-harness-channel-dingtalk](packages/harness-channel-dingtalk) | DingTalk Stream channel | 0.1.0 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-dingtalk) |
 | [deepseek-harness-channel-wecom](packages/harness-channel-wecom) | WeCom AI Bot WebSocket channel | 0.1.4 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-wecom) |
 | [deepseek-harness-channel-imessage](packages/harness-channel-imessage) | Native local macOS iMessage channel | 0.1.5 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-imessage) |
-| [deepseek-harness-insights](packages/harness-insights) | Local-first usage and activity dashboard | 0.1.6 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-insights) |
+| [deepseek-harness-insights](packages/harness-insights) | Local-first usage and activity dashboard | 0.1.7 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-insights) |
 | [deepseek-harness-locale-pack](packages/harness-locale-pack) | Additional interface and minority-language locales | 0.1.4 | [npm](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-locale-pack) |
 
 Every package directory contains an English README and a [简体中文 README](README.zh-CN.md) where applicable. The package-specific documents are the source of truth for platform credentials and configuration fields.

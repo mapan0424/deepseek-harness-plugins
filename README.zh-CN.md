@@ -52,7 +52,7 @@
 
 | 插件包名 | 最新版本 | 功能说明 | 安装命令 (`dsh plugin`) | npm 页面 |
 | :--- | :---: | :--- | :--- | :---: |
-| **`@anarkhgatsby/deepseek-harness-insights`** | `0.1.6` | 本地优先用量洞察面板：Token 消耗走势、模型花费分布、对话活动热力图与工具调用审计。 | `dsh plugin add @anarkhgatsby/deepseek-harness-insights` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-insights)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-insights) |
+| **`@anarkhgatsby/deepseek-harness-insights`** | `0.1.7` | 本地优先用量洞察面板：Token 消耗走势、模型花费分布、对话活动热力图与工具调用审计。 | `dsh plugin add @anarkhgatsby/deepseek-harness-insights` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-insights)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-insights) |
 
 ---
 

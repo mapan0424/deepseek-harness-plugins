@@ -10,6 +10,8 @@
 
 > ⚠️ **非官方声明**：本项目由开源社区独立开发与维护，**不是 DeepSeek 官方产品**，未经 DeepSeek 官方赞助、认可或背书，亦不代表与 DeepSeek 存在隶属关系。
 
+> 当前源代码版本已与 DeepSeek Harness `0.1.5-rc.1` 和 `@deepseek-ai/cordis@4.0.2` 完成验证；各包的精确 peer 依赖、平台限制和凭据要求以包内中英文 README 为准。
+
 ---
 
 ## 📑 目录
@@ -32,8 +34,8 @@
 
 | 插件包名 | 最新版本 | 功能说明 | 安装命令 (`dsh plugin`) | npm 页面 |
 | :--- | :---: | :--- | :--- | :---: |
-| **`@anarkhgatsby/deepseek-harness-core`** | `0.1.4` | 统一 `GatewayCore` 消息总线路由中枢，负责消息去重、会话分发与渠道底层适配。 | `dsh plugin add @anarkhgatsby/deepseek-harness-core` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-core)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-core) |
-| **`@anarkhgatsby/deepseek-harness-channel-config`** | `0.1.7` | 渠道可视化设置中心前端 UI，支持飞书/企微/iMessage/钉钉运行时参数在线配置与热重载。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-config` | [NPM](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-config) |
+| **`@anarkhgatsby/deepseek-harness-core`** | `0.1.5` | 统一 `GatewayCore` 消息总线路由中枢，负责消息去重、会话分发与渠道底层适配。 | `dsh plugin add @anarkhgatsby/deepseek-harness-core` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-core)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-core) |
+| **`@anarkhgatsby/deepseek-harness-channel-config`** | `0.1.8` | 渠道可视化设置中心前端 UI，支持飞书/企微/iMessage/钉钉运行时参数在线配置与热重载。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-config` | [NPM](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-config) |
 
 ---
 
@@ -41,10 +43,10 @@
 
 | 插件包名 | 最新版本 | 功能说明 | 安装命令 (`dsh plugin`) | npm 页面 |
 | :--- | :---: | :--- | :--- | :---: |
-| **`@anarkhgatsby/deepseek-harness-channel-feishu`** | `0.1.2` | 飞书 / Lark 机器人渠道（支持 WebSocket 长连接免公网 IP、富文本/卡片/打字机流式输出）。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-feishu` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-feishu)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-feishu) |
-| **`@anarkhgatsby/deepseek-harness-channel-dingtalk`** | `0.1.0` | 钉钉机器人接入渠道，支持 Stream 长连接。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-dingtalk` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-dingtalk)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-dingtalk) |
-| **`@anarkhgatsby/deepseek-harness-channel-wecom`** | `0.1.4` | 企业微信应用及自建机器人接入渠道。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-wecom` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-wecom)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-wecom) |
-| **`@anarkhgatsby/deepseek-harness-channel-imessage`** | `0.1.5` | macOS 本地原生 iMessage 消息通道（直连 Messages.app 与本地 SQLite 数据库，并将 Markdown 回复转换为易读纯文本）。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-imessage` | [NPM](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-imessage) |
+| **`@anarkhgatsby/deepseek-harness-channel-feishu`** | `0.1.3` | 飞书 / Lark 机器人渠道（支持 WebSocket 长连接免公网 IP、富文本/卡片/打字机流式输出）。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-feishu` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-feishu)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-feishu) |
+| **`@anarkhgatsby/deepseek-harness-channel-dingtalk`** | `0.1.1` | 钉钉机器人接入渠道，支持 Stream 长连接。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-dingtalk` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-dingtalk)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-dingtalk) |
+| **`@anarkhgatsby/deepseek-harness-channel-wecom`** | `0.1.5` | 企业微信应用及自建机器人接入渠道。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-wecom` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-channel-wecom)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-wecom) |
+| **`@anarkhgatsby/deepseek-harness-channel-imessage`** | `0.1.6` | macOS 本地原生 iMessage 消息通道（直连 Messages.app 与本地 SQLite 数据库，并将 Markdown 回复转换为易读纯文本）。 | `dsh plugin add @anarkhgatsby/deepseek-harness-channel-imessage` | [NPM](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-channel-imessage) |
 
 ---
 
@@ -52,7 +54,7 @@
 
 | 插件包名 | 最新版本 | 功能说明 | 安装命令 (`dsh plugin`) | npm 页面 |
 | :--- | :---: | :--- | :--- | :---: |
-| **`@anarkhgatsby/deepseek-harness-insights`** | `0.1.7` | 本地优先用量洞察面板：Token 消耗走势、模型花费分布、对话活动热力图与工具调用审计。 | `dsh plugin add @anarkhgatsby/deepseek-harness-insights` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-insights)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-insights) |
+| **`@anarkhgatsby/deepseek-harness-insights`** | `0.1.8` | 本地优先用量洞察面板：Token 消耗走势、模型花费分布、对话活动热力图与工具调用审计。 | `dsh plugin add @anarkhgatsby/deepseek-harness-insights` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-insights)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-insights) |
 
 ---
 
@@ -60,7 +62,7 @@
 
 | 插件包名 | 最新版本 | 功能说明 | 安装命令 (`dsh plugin`) | npm 页面 |
 | :--- | :---: | :--- | :--- | :---: |
-| **`@anarkhgatsby/deepseek-harness-locale-pack`** | `0.1.4` | 多语言与民族语言包：支持藏文、维吾尔文、蒙古文、彝文、繁体中文、日文、韩文等。 | `dsh plugin add @anarkhgatsby/deepseek-harness-locale-pack` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-locale-pack)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-locale-pack) |
+| **`@anarkhgatsby/deepseek-harness-locale-pack`** | `0.1.5` | 多语言与民族语言包：支持藏文、维吾尔文、蒙古文、彝文、繁体中文、日文、韩文等。 | `dsh plugin add @anarkhgatsby/deepseek-harness-locale-pack` | [![npm](https://img.shields.io/npm/v/@anarkhgatsby/deepseek-harness-locale-pack)](https://www.npmjs.com/package/@anarkhgatsby/deepseek-harness-locale-pack) |
 
 ---
 

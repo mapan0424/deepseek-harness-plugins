@@ -127,7 +127,7 @@ imessage:
 
 ## 兼容性
 
-`0.1.5` 面向 DeepSeek Harness `0.1.2-rc.1` 依赖系列。
+`0.1.6` 已与 DeepSeek Harness `0.1.5-rc.1`、`@deepseek-ai/cordis@^4.0.2`、`@deepseek-ai/dsh-typert-protocol@0.1.5-rc.1` 及 `@deepseek-ai/dsh-tools@0.1.5-rc.1` 完成验证；共享路由依赖 `@anarkhgatsby/deepseek-harness-core@0.1.5`。本插件仅支持 macOS。
 
 ---
 

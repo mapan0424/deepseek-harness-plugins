@@ -73,7 +73,7 @@ dsh plugin add @anarkhgatsby/deepseek-harness-channel-dingtalk
 
 ## 兼容性
 
-`0.1.7` 面向 DeepSeek Harness `0.1.2-rc.1` 客户端运行时。建议将配置 UI 与渠道运行时安装到同一个 profile，并保持版本线兼容。
+`0.1.8` 已与 DeepSeek Harness `0.1.5-rc.1`、`@deepseek-ai/cordis@^4.0.2`、`@deepseek-ai/dsh-client-connection@0.1.5-rc.1` 及 `@deepseek-ai/dsh-client-locale@0.1.5-rc.1` 完成验证。建议将配置 UI 与渠道运行时安装到同一个 profile。
 
 ## 开源协议
 

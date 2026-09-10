@@ -73,7 +73,7 @@ Credentials remain in the local Harness settings profile. Treat the profile dire
 
 ## Compatibility
 
-The `0.1.7` line targets the DeepSeek Harness `0.1.2-rc.1` client runtime family. Channel configuration is most useful when the UI package and channel runtimes are installed into the same profile.
+`0.1.8` is validated with DeepSeek Harness `0.1.5-rc.1`, `@deepseek-ai/cordis@^4.0.2`, `@deepseek-ai/dsh-client-connection@0.1.5-rc.1`, and `@deepseek-ai/dsh-client-locale@0.1.5-rc.1`. Install the UI and the channel runtime packages into the same profile.
 
 ## License
 

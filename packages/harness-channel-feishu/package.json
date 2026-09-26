@@ -1,6 +1,6 @@
 {
   "name": "@anarkhgatsby/deepseek-harness-channel-feishu",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Channel plugin for DeepSeek Harness: 飞书 behind one message bus. Thin facade on @anarkhgatsby/deepseek-harness-core.",
   "type": "module",
   "main": "./index.js",
@@ -42,7 +42,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@anarkhgatsby/deepseek-harness-core": "0.1.7"
+    "@anarkhgatsby/deepseek-harness-core": "0.1.8"
   },
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.0.4",

@@ -1,5 +1,8 @@
 packages:
   - 'packages/*'
 
+minimumReleaseAgeExclude:
+  - '@anarkhgatsby/deepseek-harness-core@0.1.9'
+
 overrides:
   '@deepseek-ai/dsh-invariants': '0.1.1-rc.2'
